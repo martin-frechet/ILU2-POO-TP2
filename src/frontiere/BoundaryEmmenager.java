@@ -1,6 +1,7 @@
 package frontiere;
 
 import controleur.ControlEmmenager;
+import villagegaulois.Village;
 
 public class BoundaryEmmenager {
 	private ControlEmmenager controlEmmenager;
@@ -27,7 +28,7 @@ public class BoundaryEmmenager {
 					break;
 
 				case 2:
-					//TODO a completer
+					emmenagerGaulois(nomVisiteur);
 					break;
 
 				default:
@@ -40,6 +41,16 @@ public class BoundaryEmmenager {
 	}
 
 	private void emmenagerDruide(String nomVisiteur) {
-		//TODO a completer
+		System.out.println("Bienvenue villageois " + nomVisiteur);
+		int force = Clavier.entrerEntier("Quelle est votre force ? : ");
+		int potMin = Clavier.entrerEntier("Quelle est effet de potion minimum ? : ");
+		int potMax = Clavier.entrerEntier("Quelle est effet de potion maximum ? : ");
+		controlEmmenager.ajouterDruide(nomVisiteur, force, potMin, potMax);
+	}
+	
+	private void emmenagerGaulois(String nomVisiteur) {
+		System.out.println("Bienvenue villageois " + nomVisiteur);
+		int choixUtilisateur2 = Clavier.entrerEntier("Quelle est votre force ? : ");
+		controlEmmenager.ajouterGaulois(nomVisiteur, choixUtilisateur2);
 	}
 }
